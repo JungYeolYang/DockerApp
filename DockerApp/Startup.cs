@@ -39,7 +39,7 @@ namespace DockerApp
         {
             if (env.IsDevelopment())
             {
-               // app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();
             }
             else
             {
