@@ -7,7 +7,7 @@ EXPOSE 80
 
 FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY ["DockerApp/DockerApp.csproj", "DockerApp/"]
+COPY "DockerApp/DockerApp.csproj", "DockerApp/"
 RUN dotnet restore "DockerApp/DockerApp.csproj"
 COPY . .
 WORKDIR "/src/DockerApp"
@@ -19,4 +19,4 @@ RUN dotnet publish "DockerApp.csproj" -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "DockerApp.dll"]
+ENTRYPOINT "dotnet", "DockerApp.dll"
